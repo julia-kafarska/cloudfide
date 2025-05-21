@@ -1,22 +1,53 @@
 import express from "express";
-import { getBinanceHistoricalTrades } from "../../services/binance.js";
+import {
+  analyzeBinanceHistoricalTrades,
+  getBinanceHistoricalTrades,
+} from "../../services/binance.js";
 const api_v1 = express.Router();
-
+/**
+ * @swagger
+ * /ping:
+ *   get:
+ *     summary: health check
+ */
 api_v1.get("/ping", function (req, res) {
   res.send("pong");
 });
 
-// add swagger
-api_v1.get("/historical", async function (req, res) {
-  const { symbol, limit } = req.params;
+/**
+ * @swagger
+ * /ping:
+ *   post:
+ *     summary: Create a JSONPlaceholder user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The user's name.
+ *                 example: Leanne Graham
+ *     responses:
+ *       201:
+ *         ...
+ */
+api_v1.get("/analyze", async function (req, res) {
+  const { symbol, limit } = req.query;
+
   const data = await getBinanceHistoricalTrades({
     symbol,
     limit,
   });
-  console.log({
-    res: data,
+
+  const dataAnalyzed = await analyzeBinanceHistoricalTrades({ data });
+  res.send({
+    symbol,
+    limit,
+    priceDifference: dataAnalyzed,
   });
-  res.send({ data });
 });
 
 export default api_v1;

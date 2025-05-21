@@ -8,5 +8,5 @@ export const binance_apis = [
 ];
 
 export const binance_endpoints = {
-  historicalTrades: "/api/v3/trades",
+  historicalTrades: "/api/v3/historicalTrades",
 };

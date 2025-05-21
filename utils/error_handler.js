@@ -4,10 +4,10 @@ export const messages = {
 };
 
 export const handleError = ({ errorCode, res }) => {
-  console.error({
+  const error = {
     errorCode,
     message: messages[errorCode],
-  });
-
-  res.reject(errorCode);
+  };
+  console.error(error);
+  return error;
 };

@@ -1,8 +1,7 @@
 // Fetch historical market data for a specific cryptocurrency symbol and time range using the API.
 //
 //
-//     Analyze the fetched data to identify changes in cryptocurrency prices, such as increases or decreases, over the specified time period.
-//
+
 //
 //     Display the analyzed data in a formatted manner.
 
@@ -10,7 +9,14 @@ import axios from "axios";
 import { binance_apis, binance_endpoints } from "../cosnt/binance.js";
 import { handleError } from "../utils/error_handler.js";
 
-export const getBinanceHistoricalTrades = async ({ symbol, limit, res }) => {
+export const analyzeBinanceHistoricalTrades = async ({ data }) => {
+  // TODO add real logic
+  const priceA = data[0].price;
+  const priceB = data[data.length - 1].price;
+
+  return priceB - priceA;
+};
+export const getBinanceHistoricalTrades = async ({ symbol, limit }) => {
   if (symbol && limit) {
     try {
       const params = `?symbol=${symbol}&limit=${limit}`;
@@ -19,14 +25,13 @@ export const getBinanceHistoricalTrades = async ({ symbol, limit, res }) => {
       );
       return data;
     } catch (e) {
-      handleError({
+      console.log(e.message);
+      return handleError({
         errorCode: "e1",
-        res,
       });
     }
   }
-  handleError({
+  return handleError({
     errorCode: "e2",
-    res,
   });
 };
