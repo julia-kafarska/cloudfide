@@ -5,10 +5,15 @@
 npm install
 
 ## run
+npm run dev
 
+## production
+node index.js
+
+## swagger docs
+http://localhost:3000/docs/
 
 ## Task:
-
 ### Ruleset:
 - Time limit – 120 minutes – (apply best practices)
 - Allowed tools: almost all

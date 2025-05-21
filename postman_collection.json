@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "637a9948-1133-40a5-b63f-80772874b701",
+		"name": "Cloudfide",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2633653"
+	},
+	"item": [
+		{
+			"name": "analyze",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/analyze?symbol=BTCUSDT&limit=500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"analyze"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "BTCUSDT"
+						},
+						{
+							"key": "limit",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyze test error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/analyze",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"analyze"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "btc",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "500",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.binance.com/api/v3/historicalTrades?symbol=BTCUSDT&limit=500",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.binance.com/api/v3/historicalTrades?symbol=BTCUSDT&limit=500",
+					"protocol": "https",
+					"host": [
+						"api",
+						"binance",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"historicalTrades"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "BTCUSDT"
+						},
+						{
+							"key": "limit",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

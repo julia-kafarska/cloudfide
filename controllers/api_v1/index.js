@@ -6,7 +6,7 @@ import {
 const api_v1 = express.Router();
 /**
  * @swagger
- * /ping:
+ * /api/v1/ping:
  *   get:
  *     summary: health check
  */
@@ -16,23 +16,19 @@ api_v1.get("/ping", function (req, res) {
 
 /**
  * @swagger
- * /ping:
- *   post:
- *     summary: Create a JSONPlaceholder user.
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
+ * /api/v1/analyze:
+ *   get:
+ *      parameters:
+ *         - in: query
+ *           name: symbol
+ *           required: true
  *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *                 description: The user's name.
- *                 example: Leanne Graham
- *     responses:
- *       201:
- *         ...
+ *             type: string
+ *         - in: query
+ *           name: limit
+ *           required: true
+ *           schema:
+ *             type: number
  */
 api_v1.get("/analyze", async function (req, res) {
   const { symbol, limit } = req.query;

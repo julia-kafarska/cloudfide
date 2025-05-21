@@ -1,9 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import "./swagger.js";
 import v1 from "./controllers/api_v1/index.js";
+import { setupSwagger } from "./swagger.js";
 
 const app = express();
+setupSwagger(app); // Add Swagger setup here
 dotenv.config();
 const port = 3000;
 
