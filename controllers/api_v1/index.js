@@ -1,5 +1,5 @@
-const express = require("express");
-const { getBinanceHistoricalTrades } = require("../../services/binance");
+import express from "express";
+import { getBinanceHistoricalTrades } from "../../services/binance.js";
 const api_v1 = express.Router();
 
 api_v1.get("/ping", function (req, res) {
@@ -8,15 +8,15 @@ api_v1.get("/ping", function (req, res) {
 
 // add swagger
 api_v1.get("/historical", async function (req, res) {
-  try {
-    const data = await getBinanceHistoricalTrades({
-      symbol: "btc",
-      limit: 500,
-    });
-    console.log({
-      res: data,
-    });
-  } catch (e) {}
+  const { symbol, limit } = req.params;
+  const data = await getBinanceHistoricalTrades({
+    symbol,
+    limit,
+  });
+  console.log({
+    res: data,
+  });
+  res.send({ data });
 });
 
-module.exports = api_v1;
+export default api_v1;

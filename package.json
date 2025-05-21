@@ -1,0 +1,33 @@
+{
+  "name": "cloudfide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier . --write",
+    "test": "jest",
+    "dev": "nodemon ./index.js localhost 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/julia-kafarska/cloudfide.git"
+  },
+  "author": "Julia Kafarska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julia-kafarska/cloudfide/issues"
+  },
+  "homepage": "https://github.com/julia-kafarska/cloudfide#readme",
+  "dependencies": {
+    "@jest/globals": "^29.7.0",
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prettier": "3.5.3"
+  },
+  "type": "module"
+}

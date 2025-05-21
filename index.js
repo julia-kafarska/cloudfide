@@ -1,8 +1,9 @@
-const express = require("express");
-const v1 = require("./controllers/api_v1");
+import express from "express";
+import dotenv from "dotenv";
+import v1 from "./controllers/api_v1/index.js";
 
 const app = express();
-require("dotenv").config();
+dotenv.config();
 const port = 3000;
 
 app.use("/api/v1", v1);

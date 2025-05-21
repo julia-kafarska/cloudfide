@@ -3,11 +3,11 @@ export const messages = {
   e2: "Symbol and limit parameters are required",
 };
 
-const
-
-export const handleError = (errorCode) => {
+export const handleError = ({ errorCode, res }) => {
   console.error({
     errorCode,
     message: messages[errorCode],
   });
+
+  res.reject(errorCode);
 };

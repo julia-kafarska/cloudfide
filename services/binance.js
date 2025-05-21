@@ -7,10 +7,10 @@
 //     Display the analyzed data in a formatted manner.
 
 import axios from "axios";
-import { binance_apis, binance_endpoints } from "../cosnt/binance";
-import { messages, handleError } from "../utils/error_handler";
+import { binance_apis, binance_endpoints } from "../cosnt/binance.js";
+import { handleError } from "../utils/error_handler.js";
 
-export const getBinanceHistoricalTrades = async ({ symbol, limit }) => {
+export const getBinanceHistoricalTrades = async ({ symbol, limit, res }) => {
   if (symbol && limit) {
     try {
       const params = `?symbol=${symbol}&limit=${limit}`;
@@ -19,8 +19,14 @@ export const getBinanceHistoricalTrades = async ({ symbol, limit }) => {
       );
       return data;
     } catch (e) {
-      handleError("e1");
+      handleError({
+        errorCode: "e1",
+        res,
+      });
     }
   }
-  handleError("e2");
+  handleError({
+    errorCode: "e2",
+    res,
+  });
 };
