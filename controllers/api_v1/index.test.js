@@ -1,10 +1,9 @@
-const app = require("express");
-const request = require("supertest");
 const { describe, expect, it } = require("@jest/globals");
+const axios = require("axios");
 
 describe("GET /api/v1/ping", function () {
-  it("responds with 'pong'", function () {
-    const test = request(app).get("api/v1/ping");
-    return expect(test).toEqual("pong");
+  it("responds with 'pong'", async function () {
+    const test = await axios.get("http://localhost:3000/api/v1/ping");
+    expect(test.data).toEqual("pong");
   });
 });
