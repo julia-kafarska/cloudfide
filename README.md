@@ -4,6 +4,7 @@ postman: [postman_collection.json](postman_collection.json)
 
 ![Screenshot](screenshot.png "screenshot")
 ![Postman](postman.png "postman")
+![Postman](test.png "test")
 
 ## Install:
 npm install
