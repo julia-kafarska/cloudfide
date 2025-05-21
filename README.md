@@ -1,5 +1,9 @@
 # Cloudfide
 
+postman: [postman_collection.json](postman_collection.json)
+
+![Screenshot](screenshot.png "screenshot")
+![Postman](postman.png "postman")
 
 ## Install:
 npm install
@@ -24,7 +28,6 @@ http://localhost:3000/docs/
 - Linters are allowed
 - IntelliSense is allowed
 - Preferably Express/Nest, the result needs to be an API/web app
-
 
 ### Overall success criteria:
 Code is buildable and can be started with the command: npm run dev or equivalent
